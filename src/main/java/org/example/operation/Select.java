@@ -39,11 +39,13 @@ public class Select implements Operation{
 
                 return name+","+age+","+salary+","+department ;
             } else {
-                return null;
+                return "No such employee";
             }
         } catch (Exception e) {
             return "Update Error" + e.getMessage();
         }
     }
+
+
 
 }

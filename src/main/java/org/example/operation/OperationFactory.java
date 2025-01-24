@@ -16,6 +16,7 @@ public class OperationFactory {
             case "delete":return new Delete(connection.getConnection());
             case "update":return new Update(connection.getConnection());
             case "select":return new Select(connection.getConnection());
+            case "selectall":return new SelectAll(connection.getConnection());
             default: return null;
         }
 
