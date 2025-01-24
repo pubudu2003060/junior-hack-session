@@ -9,12 +9,11 @@ import java.util.Scanner;
 
 public class Application {
 
-
-    Scanner scanner = new Scanner(System.in);
     Component menuComponent = new MainMenu();
     Component createComponent = new CreateImpl();
     Component deleteComponent = new DeleteImpl();
     Component selectComponent = new SelectImpl();
+    Component updateComponent = new UpdateImpl();
     boolean run = true;
 
     public void runApplication() {
@@ -24,12 +23,11 @@ public class Application {
             switch (submenu){
                 case 1:createComponent.getComponent();break;
                 case 2:selectComponent.getComponent();break;
+                case 3:updateComponent.getComponent();break;
                 case 4:deleteComponent.getComponent();break;
                 case 5:run = false;break;
             }
         }
-
-
 
 
     }
