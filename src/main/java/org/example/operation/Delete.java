@@ -5,10 +5,16 @@ import java.sql.PreparedStatement;
 
 public class Delete implements Operation {
 
-    public Object operation(Object object, Connection connection) {
+    Connection connection;
+
+    public Delete(Connection connection) {
+        this.connection = connection;
+    }
+
+    public Object operation(Object object) {
         try {
             int id = (Integer) object;
-            return delete(id, connection);
+            return delete(id, this.connection);
         }catch (Exception e) {
             return e.getMessage();
         }

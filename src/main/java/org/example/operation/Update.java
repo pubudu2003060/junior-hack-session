@@ -10,11 +10,17 @@ import java.util.Map;
 
 public class Update implements Operation {
 
+    Connection connection;
+
+    public Update(Connection connection) {
+        this.connection = connection;
+    }
+
     @Override
-    public String operation(Object object, Connection connection) {
+    public String operation(Object object) {
         try {
             UpdateDTO updateDTO = (UpdateDTO) object;
-            return update(updateDTO.getId(),updateDTO.getAttribute(),updateDTO.getValue(),connection);
+            return update(updateDTO.getId(),updateDTO.getAttribute(),updateDTO.getValue(),this.connection);
         }catch (Exception e){
             return e.getMessage();
         }

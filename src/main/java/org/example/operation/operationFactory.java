@@ -1,14 +1,21 @@
 package org.example.operation;
 
+import org.example.databaseConnection.ConnectionI;
+import org.example.databaseConnection.DatabaseConnection;
+
+import java.sql.SQLException;
+
 public class operationFactory {
 
-    public Operation getOperation(String operation) {
+    public Operation getOperation(String operation) throws SQLException {
+
+        ConnectionI connection = new DatabaseConnection();
 
         switch (operation) {
-            case "create":return new Crearte();
-            case "delete":return new Delete();
-            case "update":return new Update();
-            case "select":return new Select();
+            case "create":return new Crearte(connection.getConnection());
+            case "delete":return new Delete(connection.getConnection());
+            case "update":return new Update(connection.getConnection());
+            case "select":return new Select(connection.getConnection());
             default: return null;
         }
 

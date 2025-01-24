@@ -7,11 +7,17 @@ import java.sql.ResultSet;
 
 public class Select implements Operation{
 
+    Connection connection;
+
+    public Select(Connection connection) {
+        this.connection = connection;
+    }
+
     @Override
-    public Object operation(Object object, Connection connection) {
+    public Object operation(Object object) {
         try {
             int id = Integer.parseInt(object.toString());
-            return selection(id,connection);
+            return selection(id,this.connection);
         }catch (Exception e) {
             return e.getMessage();
         }
