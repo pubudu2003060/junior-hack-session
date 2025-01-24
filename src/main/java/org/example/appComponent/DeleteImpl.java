@@ -8,19 +8,20 @@ public class DeleteImpl implements Component {
 
     @Override
     public int getComponent() {
-        System.out.println("-------------------------");
+        System.out.println();
+        System.out.println("------Delete Employee-----");
         System.out.print("Enter Id to delete: ");
         int inp = Integer.parseInt(input.getInput());
 
         try {
             Operation operation = operationFactory.getOperation("delete");
             String result = (String) operation.operation(inp);
-            System.out.println(result);
+            System.out.println("*** "+result+" ***");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        System.out.println("-------------------------");
+        System.out.println();
 
         return 1;
     }

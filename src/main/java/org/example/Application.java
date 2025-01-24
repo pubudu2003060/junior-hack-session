@@ -25,8 +25,8 @@ public class Application {
             int submenu = menuComponent.getComponent();
             switch (submenu){
                 case 1:createComponent.getComponent();break;
-                case 3:deleteComponent.getComponent();break;
-                case 4:run = false;break;
+                case 4:deleteComponent.getComponent();break;
+                case 5:run = false;break;
             }
         }
 

@@ -14,11 +14,11 @@ public class CreateImpl implements Component{
 
     EmployeeDTO employee = new EmployeeDTO();
 
-
     @Override
     public int getComponent() {
 
-        System.out.println("-------------------------");
+        System.out.println();
+        System.out.println("------Enter Employee-----");
         System.out.print("Enter name : ");
         name = input.getInput();
         System.out.print("Enter Age : ");
@@ -36,12 +36,12 @@ public class CreateImpl implements Component{
         try {
             Operation operation = operationFactory.getOperation("create");
             String result = (String) operation.operation(employee);
-            System.out.println(result);
+            System.out.println("*** "+result+" ***");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        System.out.println("-------------------------");
+        System.out.println();
 
         return 1;
     }
