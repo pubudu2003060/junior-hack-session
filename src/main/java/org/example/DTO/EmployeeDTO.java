@@ -3,7 +3,7 @@ package org.example.DTO;
 
 public class EmployeeDTO {
 
-    private int id;
+    private int id ;
     private String name;
     private int age;
     private String salary;
@@ -50,5 +50,13 @@ public class EmployeeDTO {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -6,6 +6,5 @@ import java.sql.Connection;
 
 public interface Operation {
 
-    public String operation(EmployeeDTO employeeDTO, Connection connection);
 
 }
