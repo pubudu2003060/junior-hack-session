@@ -18,7 +18,7 @@ public class CreateImpl implements Component{
     @Override
     public int getComponent() {
 
-        System.out.println("------");
+        System.out.println("-------------------------");
         System.out.print("Enter name : ");
         name = input.getInput();
         System.out.print("Enter Age : ");
@@ -35,10 +35,13 @@ public class CreateImpl implements Component{
 
         try {
             Operation operation = operationFactory.getOperation("create");
-            operation.operation(employee);
+            String result = (String) operation.operation(employee);
+            System.out.println(result);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+        System.out.println("-------------------------");
 
         return 1;
     }
