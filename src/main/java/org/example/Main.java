@@ -1,12 +1,18 @@
 package org.example;
 
+import org.example.DTO.EmployeeDTO;
 import org.example.databaseConnection.DatabaseConnection;
+import org.example.operation.Crearte;
+import org.example.operation.Operation;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) {
+
+        Operation operation = new Crearte();
+        EmployeeDTO employeeDTO = new EmployeeDTO(1,"pubudu",19,"2000","hr");
 
         DatabaseConnection databaseConnection = new DatabaseConnection();
         try {
@@ -17,5 +23,13 @@ public class Main {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
+        try {
+            String result = operation.operation(employeeDTO,databaseConnection.getConnection());
+            System.out.println(result);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
