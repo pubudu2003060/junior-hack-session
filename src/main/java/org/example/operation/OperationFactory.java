@@ -5,7 +5,7 @@ import org.example.databaseConnection.DatabaseConnection;
 
 import java.sql.SQLException;
 
-public class operationFactory {
+public class OperationFactory {
 
     public Operation getOperation(String operation) throws SQLException {
 
