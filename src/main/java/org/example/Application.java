@@ -1,9 +1,6 @@
 package org.example;
 
-import org.example.appComponent.Component;
-import org.example.appComponent.CreateImpl;
-import org.example.appComponent.DeleteImpl;
-import org.example.appComponent.MainMenu;
+import org.example.appComponent.*;
 import org.example.operation.OperationFactory;
 import org.example.userInput.InputI;
 import org.example.userInput.UserInput;
@@ -17,6 +14,7 @@ public class Application {
     Component menuComponent = new MainMenu();
     Component createComponent = new CreateImpl();
     Component deleteComponent = new DeleteImpl();
+    Component selectComponent = new SelectImpl();
     boolean run = true;
 
     public void runApplication() {
@@ -25,6 +23,7 @@ public class Application {
             int submenu = menuComponent.getComponent();
             switch (submenu){
                 case 1:createComponent.getComponent();break;
+                case 2:selectComponent.getComponent();break;
                 case 4:deleteComponent.getComponent();break;
                 case 5:run = false;break;
             }
