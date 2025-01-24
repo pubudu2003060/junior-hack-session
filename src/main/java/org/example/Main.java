@@ -2,9 +2,7 @@ package org.example;
 
 import org.example.DTO.EmployeeDTO;
 import org.example.databaseConnection.DatabaseConnection;
-import org.example.operation.Crearte;
-import org.example.operation.Operation;
-import org.example.operation.Update;
+import org.example.operation.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -12,7 +10,7 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) {
 
-        Update operation = new Update();
+        Delete operation = new Delete();
 
         EmployeeDTO employeeDTO = new EmployeeDTO(1,"pubudu",19,"2000","hr");
 
@@ -27,7 +25,7 @@ public class Main {
         }
 
         try {
-            String result = operation.operation(1,"age",45,databaseConnection.getConnection());
+            Object result = operation.operation(1,databaseConnection.getConnection());
             System.out.println(result);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
