@@ -2,6 +2,7 @@ package org.example.operation;
 
 import org.example.DTO.EmployeeDTO;
 import org.example.databaseConnection.DatabaseConnection;
+import org.modelmapper.ModelMapper;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,9 +10,15 @@ import java.sql.PreparedStatement;
 public class Crearte implements Operation {
 
 
+    @Override
+    public String operation(Object object, Connection connection) {
+        try {
+            EmployeeDTO employeeDTO = (EmployeeDTO) object;
+            return addOperation(employeeDTO, connection);
+        }catch (Exception e){
+            return e.getMessage();
+        }
 
-    public String operation(EmployeeDTO employeeDTO, Connection connection) {
-        return addOperation(employeeDTO, connection);
     }
 
     public String addOperation(EmployeeDTO employeeDTO, Connection connection) {

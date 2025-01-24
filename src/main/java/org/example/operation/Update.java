@@ -1,6 +1,7 @@
 package org.example.operation;
 
 import org.example.DTO.EmployeeDTO;
+import org.example.DTO.UpdateDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,8 +10,15 @@ import java.util.Map;
 
 public class Update implements Operation {
 
-    public String operation(int id, String attribute, Object value, Connection connection) {
-        return update(id,attribute,value,connection);
+    @Override
+    public String operation(Object object, Connection connection) {
+        try {
+            UpdateDTO updateDTO = (UpdateDTO) object;
+            return update(updateDTO.getId(),updateDTO.getAttribute(),updateDTO.getValue(),connection);
+        }catch (Exception e){
+            return e.getMessage();
+        }
+
     }
 
     public String update(int id, String attribute, Object value, Connection connection) {

@@ -3,10 +3,16 @@ package org.example.operation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-public class Delete {
+public class Delete implements Operation {
 
-    public String operation(int id, Connection connection) {
-        return delete(id, connection);
+    public Object operation(Object object, Connection connection) {
+        try {
+            int id = (Integer) object;
+            return delete(id, connection);
+        }catch (Exception e) {
+            return e.getMessage();
+        }
+
     }
 
     private String delete(int id, Connection conection) {

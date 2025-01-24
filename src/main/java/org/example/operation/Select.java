@@ -5,10 +5,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Select {
+public class Select implements Operation{
 
-    public Object operation(int id, Connection connection) {
-        return selection(id,connection);
+    @Override
+    public Object operation(Object object, Connection connection) {
+        try {
+            int id = Integer.parseInt(object.toString());
+            return selection(id,connection);
+        }catch (Exception e) {
+            return e.getMessage();
+        }
+
     }
 
     public Object selection(int id, Connection connection) {

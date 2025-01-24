@@ -6,5 +6,7 @@ import java.sql.Connection;
 
 public interface Operation {
 
+    Object operation(Object object, Connection connection);
+
 
 }
